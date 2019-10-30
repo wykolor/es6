@@ -50,7 +50,7 @@ gulp.task("scripts", () => {
     )
     .pipe(
       uglify({
-        compress: { properties: flse },
+        compress: { properties: false },
         output: { quote_keys: true }
       })
     )

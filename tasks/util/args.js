@@ -24,3 +24,5 @@ const args = yargs
     default: 8080,
     describe: "server port"
   }).argv;
+
+export default args;
