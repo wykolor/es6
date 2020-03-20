@@ -54,6 +54,8 @@
 	// require("./class/01_let_const");
 	// require("./class/02_structure_assignment")
 	// require("./class/03_reg_extension");
+	// require("./class/04_string_extension");
+	// require("./class/05_number_extension");
 	__webpack_require__(2);
 
 /***/ }),
@@ -61,32 +63,20 @@
 /***/ (function(module, exports) {
 
 	{
-	  let str = "\\u(20bb7)abc";
-	  for (let code of str) {
-	    console.log("code=", code);
-	  }
-	}
+	    let arr = Array.of(3, 4, 5, 4);
+	    console.log(arr);
+	    let empty = Array.of();
+	    console.log(empty);
 
-	{
-	  let str = "string";
-	  console.log("includes:", str.includes("r"));
-	  console.log("str:", str.startsWith("str"));
-	  console.log("end:", str.endsWith("ng"));
-	  let newstr = str.repeat(2);
-	  console.log(newstr);
+	} {
+	    let p = document.querySelectorAll("p");
+	    let pArr = Array.from(p);
+	    pArr.forEach(function (item) {
+	        console.log(item.textContent)
+	    })
+	    console.log(Array.from([1, 2, 3], item=>item*2))
+	    
 	}
-
-	{
-	  let name = "kolor";
-	  let info = "she is a girl";
-	  let long = `I'm ${name} ,${info}`;
-	  console.log(long);
-	}
-	{
-	  console.log("1".padStart(2, '0'));
-	  console.log("1".padEnd(3, '0'));
-	}
-
 
 /***/ })
 /******/ ]);
