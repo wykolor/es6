@@ -8,7 +8,10 @@ import livereload from "gulp-livereload";
 import plumber from "gulp-plumber";
 import rename from "gulp-rename";
 import uglify from "gulp-uglify";
-import { log, colors } from "gulp-util";
+import {
+  log,
+  colors
+} from "gulp-util";
 import args from "./util/args";
 
 gulp.task("scripts", () => {
@@ -16,19 +19,17 @@ gulp.task("scripts", () => {
     .src(["app/js/index.js"])
     .pipe(
       plumber({
-        errorHandler: function() {}
+        errorHandler: function () {}
       })
     )
     .pipe(named())
     .pipe(
       gulpWebpack({
         module: {
-          loaders: [
-            {
-              test: /\.js$/,
-              loader: "babel"
-            }
-          ]
+          rules: [{
+            test: /\.js$/,
+            loader: "babel"
+          }]
         }
       }),
       null,
@@ -50,8 +51,12 @@ gulp.task("scripts", () => {
     )
     .pipe(
       uglify({
-        compress: { properties: false },
-        output: { quote_keys: true }
+        compress: {
+          properties: false
+        },
+        output: {
+          quote_keys: true
+        }
       })
     )
     .pipe(gulp.dest("server/public/js"))
