@@ -56,27 +56,16 @@
 	// require("./class/03_reg_extension");
 	// require("./class/04_string_extension");
 	// require("./class/05_number_extension");
+	// require("./class/06_array_extension");
+	// require("./class/07_function_extension");
+	// require("./class/08_object_extension");
 	__webpack_require__(2);
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-	{
-	    let arr = Array.of(3, 4, 5, 4);
-	    console.log(arr);
-	    let empty = Array.of();
-	    console.log(empty);
-
-	} {
-	    let p = document.querySelectorAll("p");
-	    let pArr = Array.from(p);
-	    pArr.forEach(function (item) {
-	        console.log(item.textContent)
-	    })
-	    console.log(Array.from([1, 2, 3], item=>item*2))
-	    
-	}
+	
 
 /***/ })
 /******/ ]);
