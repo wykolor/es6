@@ -135,5 +135,74 @@
 	console.log("更改结构方法1:",list,newList);
 }
 {
-	
+	/**
+	 * WeakSet
+	 * 特点：
+	 * 	1、成员只能是对象
+	 * 	2、没有clear方法，没有size属性，不能遍历成员对象
+	 * 	3、成员对象都是弱引用，垃圾回收器不会关注存入WeakSet中的成员对象
+	 * 	4、成员对象存在与否，取决于垃圾回收器是否回收对该成员对象的引用
+	 * */ 
+	let ws = new WeakSet();
+	ws.add({name:'kolor'});
+	console.log("weakset:",ws);
+}
+{
+	// map 特点就是 key可以是任何数据类型
+	let map = new Map();
+	let arr = [1,2];
+	map.set(arr,["1","2"]);
+	console.log("map类型",map,map.get(arr));
+}
+{
+	// 第二种定义方式，接收一个数组作为参数
+	let map = new Map([["name","kolor"],["title","程序媛"]]);
+	// 上述操作的内部实现
+	let maps = new Map();
+	let arr = [["name","kolor"],["title","程序媛"]];
+	arr.forEach(([key,value])=>{
+		maps.set(key,value)
+	})
+	console.log("map定义：",map);
+	console.log("map自定义实现",maps);
+	// 上述两个打印结果一模一样
+	// map的方法和set结构都是一致的
+	console.log("size",map.size);
+	console.log("map has:",map.has("name"));
+	console.log("delete",map.delete("name"),map);
+	console.log("clear:",map.clear(),map);
+}
+{
+	// map的遍历
+	let map = new Map([[{name:123},"kolor"],[[1,2,4],"程序媛"]]);
+	for (let key of map.keys()) {
+		console.log("key",key)
+	}
+	for (let value of map.values()) {
+		console.log("value",value);
+	}
+	// 直接遍历默认的迭代器是绑定的entries方法
+	for (let value of map) {
+		console.log("直接遍历value",value);
+	}
+	for (let [key,value] of map.entries()) {
+		console.log("entries",key,value);
+	}
+	let obj = {
+		phone:"18208207457",
+		call(){
+			console.log("电话号码:",this.phone);
+		}
+	}
+	// forEach第二个参数传入作为第一个函数参数执行块中的this指向
+	map.forEach(function(value,key){
+		console.log("value",value+this.phone,"key",key);
+		this.call();
+	},obj)
+}
+{
+	// map转换成为数组 最好的方式基本就是使用扩展运算符 转换未数组之后就可以间接使用数组的map filter等等方法来操作map的成员
+	let map = new Map([[{name:123},"kolor"],[[1,2,4],"程序媛"]]);
+	let arr = [...map];
+	console.log("map转换为arr",arr);
 }
