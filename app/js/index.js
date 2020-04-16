@@ -6,4 +6,5 @@
 // require("./class/06_array_extension");
 // require("./class/07_function_extension");
 // require("./class/08_object_extension");
-require("./class/09_Symbol");
+// require("./class/09_Symbol");
+require("./class/10_set_map");
